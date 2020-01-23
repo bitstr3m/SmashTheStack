@@ -1,7 +1,7 @@
 # SmashTheStack
 An updated tutorial of Aleph One's 1996 paper  "Smashing The Stack For Fun And Profit"
 
-This project is in support of the 2nd annual Information Security COnference at California State University Northridge. The workshop was a presentation on buffer overflows and how they are exploited. THis project is the support documentation for that workshop.
+This project is in support of the 2nd annual Information Security COnference at California State University Northridge. The workshop was a presentation on buffer overflows and how they are exploited. This project is the support documentation for that workshop.
 For interested parties wishing to follow along in this tutorial this tutorial was rn on the following configuration
 
 Operating System: Ubuntu 18.04.3 LTS
