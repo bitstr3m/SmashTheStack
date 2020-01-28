@@ -1,0 +1,12 @@
+In general we need two things in order to effectively overwrite the stack. The first is the address of %eip from our function call. THat is to say the RET address. THis can be obtained by setting a breakpoint in gdb at the function call and then running the command "info frame" to obtain the eip at register in our case this is 0xffffd0a0, this will varying from system to system. In any case this is where you want to move the ret value to in our program this means adding 13 to buffer1. Additionally you need to overwrite the saved eip value with the instruction that you wish to run. In our program since we are wanting to jump over the "movl $0x1, -0xc(%ebp)" instuction which effectively is setting x=1, the next instuction is at memory location 0x56555579 the saved eip was 0x5655556f some simple math and we see that we need to add 10 bytes to our saved eip.
+
+compile cmd
+gcc -m32 -fno-pie -fno-asynchronous-unwind-tables -fno-stack-protector -z execstack -D_FORTIFY_SOURCE=0 -g -o example3 example3.c
+
+gdb commands used
+break function
+info frame
+p ret
+disassemble main
+
+Note: you need to compile with the -g to enable proper gdb debugging.
